@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WanderNest – Smart Travel Planner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
 
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <i class="fa-solid fa-compass"></i>
+        WanderNest
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#destinations" class="nav-link">Destinations</a></li>
+        <li><a href="#planner" class="nav-link">Trip Planner</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-outline" id="loginBtn">Login</button>
+        <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Your Smart Travel Companion</span>
+      <h1 class="hero-title">
+        Discover the World,<br />
+        <span class="hero-title-accent">One Nest at a Time</span>
+      </h1>
+      <p class="hero-subtitle">
+        Plan unforgettable journeys with personalized itineraries, curated destinations, and seamless travel management — all in one place.
+      </p>
+      <div class="hero-search">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="heroSearch" placeholder="Where do you want to go?" />
+        </div>
+        <button class="btn btn-primary btn-lg" id="exploreBtn">
+          <i class="fa-solid fa-paper-plane"></i> Explore Now
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Destinations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">12K+</span>
+          <span class="stat-label">Happy Travelers</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfaction Rate</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== DESTINATIONS SECTION ========== -->
+  <section class="section destinations-section" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Popular Destinations</span>
+        <h2 class="section-title">Where Will You <span class="accent">Wander</span> Next?</h2>
+        <p class="section-subtitle">Handpicked destinations loved by our global community of travelers</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="beach">Beach</button>
+        <button class="filter-tab" data-filter="mountain">Mountain</button>
+        <button class="filter-tab" data-filter="city">City</button>
+        <button class="filter-tab" data-filter="cultural">Cultural</button>
+      </div>
+
+      <!-- Destination Cards -->
+      <div class="destinations-grid" id="destinationsGrid">
+
+        <div class="dest-card" data-category="beach">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=80" alt="Maldives" class="dest-img" />
+            <span class="dest-badge">Beach</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Maldives</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <h3 class="dest-name">Tropical Paradise</h3>
+            <p class="dest-desc">Crystal-clear lagoons, overwater bungalows, and pristine coral reefs await.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹85,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="Maldives">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-category="mountain">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Swiss Alps" class="dest-img" />
+            <span class="dest-badge">Mountain</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Switzerland</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <h3 class="dest-name">Swiss Alps</h3>
+            <p class="dest-desc">Majestic peaks, charming villages, and world-class skiing experiences.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹1,20,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="Swiss Alps">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-category="city">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Tokyo" class="dest-img" />
+            <span class="dest-badge">City</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Japan</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+            </div>
+            <h3 class="dest-name">Tokyo</h3>
+            <p class="dest-desc">A dazzling blend of ultramodern tech and ancient temples, street food & culture.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹75,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="Tokyo">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-category="cultural">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80" alt="Taj Mahal" class="dest-img" />
+            <span class="dest-badge">Cultural</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> India</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+            </div>
+            <h3 class="dest-name">Agra & The Taj</h3>
+            <p class="dest-desc">Marvel at one of the world's greatest monuments and Mughal heritage.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹15,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="Agra">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-category="beach">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&q=80" alt="Santorini" class="dest-img" />
+            <span class="dest-badge">Beach</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> Greece</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+            </div>
+            <h3 class="dest-name">Santorini</h3>
+            <p class="dest-desc">Iconic blue-domed churches, clifftop sunsets, and Aegean Sea views.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹1,05,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="Santorini">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-category="city">
+          <div class="dest-img-wrap">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80" alt="London" class="dest-img" />
+            <span class="dest-badge">City</span>
+            <button class="dest-fav" aria-label="Favourite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <span><i class="fa-solid fa-location-dot"></i> UK</span>
+              <span class="dest-rating"><i class="fa-solid fa-star"></i> 4.6</span>
+            </div>
+            <h3 class="dest-name">London</h3>
+            <p class="dest-desc">Royal history, vibrant arts, world-class museums, and endless energy.</p>
+            <div class="dest-footer">
+              <div class="dest-price">From <strong>₹95,000</strong></div>
+              <button class="btn btn-sm btn-outline dest-plan-btn" data-dest="London">Plan Trip</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRIP PLANNER SECTION ========== -->
+  <section class="section planner-section" id="planner">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Trip Planner</span>
+        <h2 class="section-title">Plan Your <span class="accent">Perfect</span> Itinerary</h2>
+        <p class="section-subtitle">Fill in the details and we'll craft a smart day-by-day travel plan for you</p>
+      </div>
+
+      <div class="planner-layout">
+        <!-- Planner Form -->
+        <div class="planner-form-wrap">
+          <form class="planner-form" id="plannerForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="tripDestination">
+                  <i class="fa-solid fa-location-dot"></i> Destination
+                </label>
+                <input type="text" id="tripDestination" name="destination" class="form-input" placeholder="e.g. Bali, Indonesia" required />
+                <span class="form-error" id="err-destination"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="tripType">
+                  <i class="fa-solid fa-tag"></i> Trip Type
+                </label>
+                <select id="tripType" name="tripType" class="form-input form-select">
+                  <option value="">Select type...</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Beach">Beach & Relaxation</option>
+                  <option value="Cultural">Cultural & Heritage</option>
+                  <option value="Honeymoon">Honeymoon</option>
+                  <option value="Family">Family Trip</option>
+                  <option value="Solo">Solo Exploration</option>
+                </select>
+                <span class="form-error" id="err-tripType"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="startDate">
+                  <i class="fa-solid fa-calendar-days"></i> Start Date
+                </label>
+                <input type="date" id="startDate" name="startDate" class="form-input" required />
+                <span class="form-error" id="err-startDate"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="endDate">
+                  <i class="fa-solid fa-calendar-check"></i> End Date
+                </label>
+                <input type="date" id="endDate" name="endDate" class="form-input" required />
+                <span class="form-error" id="err-endDate"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="travelers">
+                  <i class="fa-solid fa-users"></i> Travelers
+                </label>
+                <input type="number" id="travelers" name="travelers" class="form-input" placeholder="No. of people" min="1" max="20" required />
+                <span class="form-error" id="err-travelers"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="budget">
+                  <i class="fa-solid fa-indian-rupee-sign"></i> Budget (₹)
+                </label>
+                <input type="number" id="budget" name="budget" class="form-input" placeholder="Total budget" min="1000" required />
+                <span class="form-error" id="err-budget"></span>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label" for="interests">
+                <i class="fa-solid fa-wand-sparkles"></i> Interests & Notes
+              </label>
+              <textarea id="interests" name="interests" class="form-input form-textarea" placeholder="Tell us what you love — food, adventure, photography, relaxing..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="generateBtn">
+              <i class="fa-solid fa-route"></i> Generate My Itinerary
+            </button>
+          </form>
+        </div>
+
+        <!-- Itinerary Output -->
+        <div class="itinerary-wrap" id="itineraryWrap">
+          <div class="itinerary-placeholder" id="itineraryPlaceholder">
+            <i class="fa-solid fa-map-location-dot placeholder-icon"></i>
+            <h3>Your itinerary appears here</h3>
+            <p>Fill in the planner form and hit <strong>Generate My Itinerary</strong> to see your personalized day-by-day plan.</p>
+          </div>
+          <div class="itinerary-result hidden" id="itineraryResult">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES SECTION ========== -->
+  <section class="section features-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why WanderNest</span>
+        <h2 class="section-title">Everything You Need to <span class="accent">Travel Smart</span></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-brain feature-icon"></i>
+          </div>
+          <h3 class="feature-title">Smart Itinerary</h3>
+          <p class="feature-desc">AI-powered day-by-day plans built around your interests, budget, and travel style.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-shield-halved feature-icon"></i>
+          </div>
+          <h3 class="feature-title">Secure Accounts</h3>
+          <p class="feature-desc">Your data is protected with encrypted authentication and secure credential management.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-mobile-screen-button feature-icon"></i>
+          </div>
+          <h3 class="feature-title">Fully Responsive</h3>
+          <p class="feature-desc">Seamlessly works across desktop, tablet, and mobile devices for on-the-go planning.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-compass-drafting feature-icon"></i>
+          </div>
+          <h3 class="feature-title">500+ Destinations</h3>
+          <p class="feature-desc">Explore a curated library of global destinations with real traveler insights and tips.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-wallet feature-icon"></i>
+          </div>
+          <h3 class="feature-title">Budget Tracker</h3>
+          <p class="feature-desc">Set a budget and get itineraries and tips tailored to your spending preferences.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="fa-solid fa-bookmark feature-icon"></i>
+          </div>
+          <h3 class="feature-title">Save & Share</h3>
+          <p class="feature-desc">Save your favourite trips, share itineraries with friends, and revisit past adventures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER ========== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-text">
+          <h2>Get Travel Inspiration in Your Inbox</h2>
+          <p>Join 12,000+ travelers receiving weekly destination guides and exclusive deals.</p>
+        </div>
+        <div class="newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Enter your email address" />
+          <button class="btn btn-primary" id="newsletterBtn">Subscribe</button>
+        </div>
+        <span class="newsletter-error" id="newsletterError"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo">
+            <i class="fa-solid fa-compass"></i> WanderNest
+          </a>
+          <p class="footer-tagline">Your smart travel companion for unforgettable journeys around the world.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#planner">Trip Planner</a></li>
+            <li><a href="#">Travel Guides</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 WanderNest. All rights reserved.</span>
+        <span>Built with <i class="fa-solid fa-heart" style="color:#f59e0b"></i> for travelers worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== AUTH MODALS ========== -->
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <button class="modal-close" id="closeLoginModal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <i class="fa-solid fa-compass modal-logo-icon"></i>
+        <h2 class="modal-title">Welcome Back</h2>
+        <p class="modal-subtitle">Sign in to your WanderNest account</p>
+      </div>
+      <form class="modal-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="loginEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" id="loginEmail" name="email" class="form-input" placeholder="you@example.com" required />
+          <span class="form-error" id="err-loginEmail"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginPassword"><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="loginPassword" name="password" class="form-input" placeholder="Enter your password" required />
+            <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Show/Hide password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <span class="form-error" id="err-loginPassword"></span>
+        </div>
+        <div class="form-row-flex">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe" /> Remember me
+          </label>
+          <a href="#" class="form-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+        <p class="modal-switch">Don't have an account? <a href="#" id="switchToSignup">Create one</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal-overlay" id="signupModal">
+    <div class="modal">
+      <button class="modal-close" id="closeSignupModal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <i class="fa-solid fa-compass modal-logo-icon"></i>
+        <h2 class="modal-title">Create Account</h2>
+        <p class="modal-subtitle">Join WanderNest and start your journey</p>
+      </div>
+      <form class="modal-form" id="signupForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="signupName"><i class="fa-solid fa-user"></i> Full Name</label>
+          <input type="text" id="signupName" name="name" class="form-input" placeholder="John Doe" required />
+          <span class="form-error" id="err-signupName"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signupEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" id="signupEmail" name="email" class="form-input" placeholder="you@example.com" required />
+          <span class="form-error" id="err-signupEmail"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="signupPassword"><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="signupPassword" name="password" class="form-input" placeholder="Min 8 characters" required />
+            <button type="button" class="toggle-password" data-target="signupPassword" aria-label="Show/Hide password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="strength-bar"><span id="strengthFill"></span></div>
+            <span id="strengthLabel"></span>
+          </div>
+          <span class="form-error" id="err-signupPassword"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword"><i class="fa-solid fa-lock-open"></i> Confirm Password</label>
+          <div class="input-password-wrap">
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Repeat your password" required />
+            <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Show/Hide password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <span class="form-error" id="err-confirmPassword"></span>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agreeTerms" required />
+            I agree to the <a href="#" class="form-link">Terms of Service</a> and <a href="#" class="form-link">Privacy Policy</a>
+          </label>
+          <span class="form-error" id="err-agreeTerms"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Create My Account</button>
+        <p class="modal-switch">Already have an account? <a href="#" id="switchToLogin">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="toast-icon fa-solid fa-circle-check"></i>
+    <span class="toast-msg" id="toastMsg"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
